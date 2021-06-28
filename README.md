@@ -36,3 +36,9 @@ This reports if battery levels go over a threshold (if charging) or below anothe
     ```
     ./_build/bat_notify
     ```
+
+## License
+
+Copyright (C) 2021 Goutham Krishna K V
+
+[MIT LICENSE](LICENSE)
