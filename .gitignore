@@ -1,0 +1,10 @@
+# Gitignore for bat_notify
+_build/
+build/
+builddir/
+debug/
+release/
+target/
+
+# VSCode Settings File
+.vscode/
