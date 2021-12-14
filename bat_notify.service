@@ -1,6 +1,5 @@
 [Unit]
-Name=bat_notify
-Desciption=Bat_Notify: The battery reporting superhero.
+Description=Bat_Notify: The battery reporting superhero.
 
 [Service]
 ExecStart=/usr/bin/env $HOME/.local/bin/bat_notify
