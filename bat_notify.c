@@ -13,7 +13,7 @@ static const char *CHARGE_FULL = "charge_full";
 static const char *ADAPTER_ONLINE_PATH = "/sys/class/power_supply/ADP1/online";
 
 // Battery Threshold Lmimits
-static const float LOWER_THRESHOLD = 0.60;
+static const float LOWER_THRESHOLD = 0.40;
 static const float HIGHER_THRESHOLD = 0.80;
 
 // Sleep time in seconds
@@ -74,13 +74,13 @@ int main() {
 		// IF battery level is higher than threshold AND is charging
 		if (battery_level > HIGHER_THRESHOLD && read_battery_level(ADAPTER_ONLINE_PATH) == 1) {
 			char connect_charger_message[200];
-			sprintf(connect_charger_message, "%f%% REMAINING (>%d%%).", battery_level * 100, (int)(HIGHER_THRESHOLD * 100));
+			sprintf(connect_charger_message, "%.2f%% REMAINING (>%d%%).", battery_level * 100, (int)(HIGHER_THRESHOLD * 100));
 			NotifyNotification * battery_over_threshold_notify = notify_notification_new ("Disconnect Charger", connect_charger_message, "battery-caution-symbolic");
 			notify_notification_show (battery_over_threshold_notify, NULL);
 			g_object_unref(G_OBJECT(battery_over_threshold_notify));
 		} else if (battery_level < LOWER_THRESHOLD && read_battery_level(ADAPTER_ONLINE_PATH) == 0) {
 			char disconnect_charger_message[200];
-			sprintf(disconnect_charger_message, "%f%% REMAINING (<%d%%).", battery_level * 100, (int)(LOWER_THRESHOLD * 100));
+			sprintf(disconnect_charger_message, "%.2f%% REMAINING (<%d%%).", battery_level * 100, (int)(LOWER_THRESHOLD * 100));
 			NotifyNotification *battery_under_threshold_notify = notify_notification_new ("Connect Charger", disconnect_charger_message, "battery-low-charging-symbolic");
 			notify_notification_show (battery_under_threshold_notify, NULL);
 			g_object_unref(G_OBJECT(battery_under_threshold_notify));
