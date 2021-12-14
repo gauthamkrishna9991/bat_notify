@@ -3,18 +3,18 @@
 set -e
 # Make sure GCC or Clang Exists
 if ! [[ $(command -v gcc) || $(command -v clang) ]]; then
-    echo "Install a C Compiler"
-    return 1
+    echo "Installing GCC using PackageKit"
+    # Install GCC with PackageKit
+    pkcon install gcc
 fi
 # Make sure Meson Exists
 if ! [[ $(command -v meson) ]]; then
-    echo "ERROR: Install Meson"
-    return 1
+    echo "Installing Meson using PackageKit"
+    pkcon install meson
 fi
 # Make sure libnotify-devel exists
-if [[ $(pkg-config --exists libnotify) ]]; then
-    echo "ERROR: Install libnotify-dev(el)"
-    return 1
+if ! [[ $(pkg-config --cflags libnotify) ]]; then
+    echo "Please Install Libnotify Development Libraries"
 fi
 # Install
 echo -e "\e[34mSetting up a build directory\e[0m"
