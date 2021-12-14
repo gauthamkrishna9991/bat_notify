@@ -19,5 +19,3 @@ exe = executable(
   dependencies: bat_deps,
   install : true
 )
-
-# test('basic', exe)
