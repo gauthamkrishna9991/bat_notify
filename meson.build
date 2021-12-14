@@ -20,4 +20,4 @@ exe = executable(
   install : true
 )
 
-test('basic', exe)
+# test('basic', exe)
