@@ -4,7 +4,8 @@ project(
   version : '1.0',
   default_options : [
     'warning_level=3',
-    'default_library=static'
+    'buildtype=release',
+    'default_library=static',
   ]
 )
 

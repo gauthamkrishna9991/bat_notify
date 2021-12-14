@@ -1,0 +1,9 @@
+[Unit]
+Name=bat_notify
+Desciption=Bat_Notify: The battery reposring superhero.
+
+[Service]
+ExecStart=/usr/bin/env /home/user/.local/bin/bat_notify
+
+[Install]
+WantedBy=default.target
