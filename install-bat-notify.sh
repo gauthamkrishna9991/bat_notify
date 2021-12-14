@@ -20,5 +20,7 @@ echo -e "\e[34mRunning Install Script.\e[0m"
 ./install.sh
 echo -e "\e[34mFinished Installation. Installing uninstall script.\e[0m"
 # Also install the uninstall-bat-notify script.
-install --mode +x ~/.bat_notify/bat-notify/uninstall-bat-notify.sh ~/.local/bin/uninstall_bat_notify
-
+install ~/.bat_notify/bat_notify/uninstall-bat-notify.sh ~/.local/bin/uninstall_bat_notify
+chmod +X ~/.local/bin/uninstall_bat_notify
+# Tell user how to uninstall bash script
+echo -e "\e[32mTo uninstall, run the script 'uninstall_bat_notify'\e[0m"
