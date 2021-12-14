@@ -1,3 +1,8 @@
+#!/bin/sh
+
+# Make it exit in case of any errors
+set -e
+
 echo -e "\e[34mDisabling bat_notify\e[0m"
 systemctl disable --user bat_notify
 echo -e "\e[34mStopping bat_notify\e[0m"

@@ -4,14 +4,17 @@ set -e
 # Make sure GCC or Clang Exists
 if ! [[ $(command -v gcc) || $(command -v clang) ]]; then
     echo "Install a C Compiler"
+    return 1
 fi
 # Make sure Meson Exists
 if ! [[ $(command -v meson) ]]; then
     echo "ERROR: Install Meson"
+    return 1
 fi
 # Make sure libnotify-devel exists
 if [[ $(pkg-config --exists libnotify) ]]; then
     echo "ERROR: Install libnotify-dev(el)"
+    return 1
 fi
 # Install
 echo -e "\e[34mSetting up a build directory\e[0m"

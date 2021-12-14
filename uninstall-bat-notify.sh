@@ -6,7 +6,7 @@ cd ~/.bat_notify/bat_notify
 
 # Run the uninstall script
 echo -e "\e[34mRunning the uninstall script.\e[0m"
-./uninstall.sh
+source ./uninstall.sh
 
 # Remove all files, including this one.
 echo -e "\e[34mRemoving bat_notify directory.\e[0m"
