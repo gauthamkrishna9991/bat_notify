@@ -24,6 +24,7 @@ meson compile -C builddir
 echo -e "\e[34mInstalling bat_notify..\e[0m"
 meson install -C builddir
 echo -e "\e[34mInstalling Systemd Service File\e[0m"
+mkdir -p ~/.config/systemd/user
 envsubst < bat_notify.service > $HOME/.config/systemd/user/bat_notify.service
 echo -e "\e[34mReloading all daemons\e[0m"
 systemctl --user daemon-reload
